@@ -1,0 +1,22 @@
+---
+  - name: "Setup consul on remote servers"
+    become: true
+    # hosts: localhost_server
+    # hosts: docker_servers_ssh
+    hosts: remote_servers_ssh
+
+    roles:
+      - consul_role
+
+
+
+
+
+
+
+
+
+
+
+
+
