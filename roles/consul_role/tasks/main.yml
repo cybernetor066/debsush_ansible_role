@@ -1,77 +1,77 @@
 ---
-# # tasks file for consul_role
-#   - name: "Echo operation (Task1)"
-#     shell: echo "Hello DevOps World!"
-#     register: "output_var"
+# tasks file for consul_role
+  - name: "Echo operation (Task1)"
+    shell: echo "Hello DevOps World!"
+    register: "output_var"
 
-#   # - name: "Debug setting (Task1)"
-#   #   debug: var=output_var.stdout_lines
+  # - name: "Debug setting (Task1)"
+  #   debug: var=output_var.stdout_lines
 
-#   # - name: "Debug setting (Task1)"
-#   #   debug:
-#   #     var: "output_var.stdout_lines"
-#       # verbosity: 2
+  # - name: "Debug setting (Task1)"
+  #   debug:
+  #     var: "output_var.stdout_lines"
+      # verbosity: 2
 
-#   # Start main operatons
-#   # INSTALLING CONSUL
-#   - name: Update apt
-#     apt:
-#       update_cache: yes
-
-
-
-#   - name: "Install Consul Server Step1 (1)"
-#     apt:
-#       name: unzip, gnupg2,curl,wget
-#       # update_cache: yes
-#       state: present
-
-#   - name: "Install Consul Server Step1 (2)"
-#     shell:
-#       cmd: wget https://releases.hashicorp.com/consul/1.8.4/consul_1.8.4_linux_amd64.zip
-
-#   - name: "Install Consul Server Step1 (3)"
-#     shell:
-#       cmd: unzip consul_1.8.4_linux_amd64.zip
-
-#   - name: "Install Consul Server Step1 (4)"
-#     shell:
-#       cmd: mv consul /usr/local/bin/
-
-#   - name: "Install Consul Server Step1 (5)"
-#     shell:
-#       cmd: consul --version
+  # Start main operatons
+  # INSTALLING CONSUL
+  - name: Update apt
+    apt:
+      update_cache: yes
 
 
 
+  - name: "Install Consul Server Step1 (1)"
+    apt:
+      name: unzip, gnupg2,curl,wget
+      # update_cache: yes
+      state: present
+
+  - name: "Install Consul Server Step1 (2)"
+    shell:
+      cmd: wget https://releases.hashicorp.com/consul/1.8.4/consul_1.8.4_linux_amd64.zip
+
+  - name: "Install Consul Server Step1 (3)"
+    shell:
+      cmd: unzip consul_1.8.4_linux_amd64.zip
+
+  - name: "Install Consul Server Step1 (4)"
+    shell:
+      cmd: mv consul /usr/local/bin/
+
+  - name: "Install Consul Server Step1 (5)"
+    shell:
+      cmd: consul --version
 
 
-#   - name: "Create Consul Service File Step2 (1)"
-#     shell:
-#       cmd: groupadd --system consul && useradd -s /sbin/nologin --system -g consul consul
-
-#   - name: "Create Consul Service File Step2 (2)"
-#     shell:
-#       cmd: mkdir -p /var/lib/consul && mkdir -p /etc/consul.d
 
 
-#   - name: "Create Consul Service File Step2 (3)"
-#     shell:
-#       cmd: chown -R consul:consul /var/lib/consul && chmod -R 775 /var/lib/consul && chown -R consul:consul /etc/consul.d
+
+  - name: "Create Consul Service File Step2 (1)"
+    shell:
+      cmd: groupadd --system consul && useradd -s /sbin/nologin --system -g consul consul
+
+  - name: "Create Consul Service File Step2 (2)"
+    shell:
+      cmd: mkdir -p /var/lib/consul && mkdir -p /etc/consul.d
 
 
-#   - name: "Create Consul Service File Step2 (4)"
-#     copy:
-#       src: /home/cybernetor066/Desktop/Freelance-Projects/Debsush-Ansible-Project/miscs/debsush_repo/scripts/consul.service
-#       dest: /etc/systemd/system/consul.service
-#       # owner: "{{ consul_user }}"
-#       # group: "{{ consul_group }}"
-#       # mode: 0755
+  - name: "Create Consul Service File Step2 (3)"
+    shell:
+      cmd: chown -R consul:consul /var/lib/consul && chmod -R 775 /var/lib/consul && chown -R consul:consul /etc/consul.d
 
 
-#   # - name: "Create Consul Service File Step2 (5)"
-#   #   shell:
-#   #     cmd: systemctl daemon-reload
+  - name: "Create Consul Service File Step2 (4)"
+    copy:
+      src: /home/cybernetor066/Desktop/Freelance-Projects/Debsush-Ansible-Project/miscs/debsush_repo/scripts/consul.service
+      dest: /etc/systemd/system/consul.service
+      # owner: "{{ consul_user }}"
+      # group: "{{ consul_group }}"
+      # mode: 0755
+
+
+  # - name: "Create Consul Service File Step2 (5)"
+  #   shell:
+  #     cmd: systemctl daemon-reload
 
 
 
